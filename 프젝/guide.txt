@@ -1,0 +1,33 @@
+train data
+전처리 (결측치 처리, 범주데이터(OneHot), 수치데이터(StandardScaler), 필요없는 특성 삭제) 
+최종 준비된 훈련 데이터 ---> 훈련
+
+test data
+전처리 (결측치 처리, 범주데이터(OneHot), 수치데이터(StandardScaler), 필요없는 특성 삭제) 
+최종 준비된 테스트 데이터 ---> 예측
+
+
+---------------------------------------------------------
+1) pandas (전처리가 완료) -> 원본이 이미 변경된 상태 -> pipeline을 돌릴 필요 없음
+  - datetime -> year, month, time(hour), datetime 삭제
+  - casual, registered 삭제
+  - 누락치 없었음
+
+  - 수치 데이터 (temp, atemp, windspeed....) 전처리 추가 필요
+  - 범주 데이터 --> OneHotEncoding
+
+2) scikitlearn 전처리 (pipeline을 거칠 필요 없음)
+
+
+
+---------------------------------------------------------
+모델 후보 (LinearRegression, DecisionTreeRegressor, RandomForestRegressor, SVR, kNNRegressor)
+훈련/교차검증 --> 현재 상태에서는 나쁜 점수
+RMSE -> RMSLE
+RMSE : root(mean((실제값 - 예측값)**2))
+RMSLE : root(mean((log(실제값+1) - log(예측값+1)**2)) --> 0.3~0.4, 1.x
+
+
+좋은 모델
+-> 하이퍼파라미터 튜닝(GridSearch, RandomSearch)
+-------------------------------------------------------------
